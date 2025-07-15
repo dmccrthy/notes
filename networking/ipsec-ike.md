@@ -1,0 +1,75 @@
+RFC 4301: IPsec
+
+- Intro
+  - IPsec provides security features for traffic at the IP layer (L3)
+  - IPsec consists of few main concepts:
+    - Security Protocols (Authentication Headers ‘AH”, and Encapsulating Security Payload ‘ESP’)
+    - Security Associations
+    - Key Management (IKE)
+    - Cryptographic algorithms
+  - In short IPsec provides cryptographic security for IPv4 and IPv6 traffic.
+- Design - IPsec relies on two primary traffic security protocols for its security:
+  - Authentication Header (AH)
+    - Protocol that provides data integrity and data origin authentication
+  - Encapsulating Security Payload (ESP)
+    - Has same features as AH but also allows for confidentiality (cryptography)
+    - Other features like key management are provided by other protocols (IKEv2 for that specifically)
+  - IPsec security is dependent on outside factors like Physical security, OS security,
+  - System
+    - IPsec runs on top of a host device in one of two ways:
+      - Security Gateway (SG) - An IPsec-enabled intermediate device which handles IPsec traffic (ie. A router or firewall)
+      - Independent Device -
+    - IPsec behavior is controlled by a Security Policy Database (SPD) which is maintained by a system administrator, or IPsec service.
+    - Entries in the SPD are used to make processing decisions for packets. These selections are detailed below:
+      - PROTECT -
+      - DISCARD -
+      - BYPASS -
+    - IPsec operates between unprotected and protected interfaces. Packets moving between interfaces compared against the SPD and one of the processing selections above is made.
+      - NOTE: Unprotected refers to a an ‘IPsec’ interface (ie. one that is encrypted). We effectively create an encrypted tunnel between two unprotected interfaces. Protected ones are plaintext (just regular interfaces)
+- Modes
+  - Both IPsec protocols can operate in 2 modes:
+    - Transport Mode - Only the data of the packet is encapsulated (encrypted). The packet's original headers remain plaintext.
+    - Tunnel Mode - Protocols (AH/ESP) are applied to all inbound traffic, including headers. This effectively replaces the original header with a new one.
+  - The reason we have modes is mainly to support encapsulation between Security Gateways (routers).
+  - Transport Mode only works when the IPsec recipient is the same as the receiving device. This is to say, the packets need to be destined for the device that will decrypt them.
+    For a lot of things that isn’t ideal.
+    Security Associations
+  - A security association (SA) is a connection that provides security services through one of the two protocols (ESP/AH)
+  - SAs can be created in pairs one for outbound and another for inbound traffic.
+  - SAs represent the agreed upon security settings used for IPsec traffic between 2 devices.
+  - SAs operate in the 2 protocol modes mentioned earlier.
+- Databases
+  - IPsec has 3 primary databases which are used to store info and make decisions when processing packets
+    - Security Policy Database (SPD)
+      - Ordered database storing security information for a device
+      - Used to make processing decisions for all traffic entering or leaving an IPsec interface.
+      - Decides whether to apply IPsec services (PROTECT), let the packet through unencrypted (BYPASS), or block the traffic entirely (DISCARD).
+      - SPD is broken into 3 smaller subsections detailed below:
+        - SPD-S - Contains record related to traffic that should be protected
+        - SPD-O - Contains records related to outbound traffic that may be discarded or bypassed
+        - SPD-I - Contains records for inbound traffic that may be discarded or bypassed.
+      - SPD Entries specify the following things:
+        - Process Info - The processing mode (PROTECT, BYPASS, DISCARD)
+        - Selectors - These are the ‘conditions’ for applying a specific processing decision.
+        - These include IP address, next layer protocols, local/remote ports, or header type
+        - These can also be special values like ANY or OPAQUE.
+        - All SPD tables need a “catch-all” entry at the end to make decisions for packets not in the table.
+    - Security Association Database (SAD)
+      - Stores security associations and information about there connection.
+      - Used to map inbound traffic to an SA.
+      - Stores information about Protocol, algorithms, and mode.
+      - After a packet has been marked for PROTECT by the SPD, the system looks in the SAD to find the appropriate SA and what protocol it needs to use.
+    - Peer Authorization Database (PAD)
+      - Serves as a link between management protocols (like IKE) and the devices SPD
+      - Specifies peers that are authorized to communicate with an IPsec device.
+      - Includes protocol and method for authenticating peers. (Protocols: IKEv1, or IKEv2) (Method: PSK, or Certificates)
+      - IP Addresses, or domain names for peer
+
+**RFC 7296: IKEv2**
+
+- Intro
+  - IKE provides a way to establish SAs between devices without manual configuration
+  - Two peers using IKE create an IKE Security Association which they use to communicate and exchange information about SAs
+  - IKE peers do 2 exchanges to initialize and create their 1st SA.
+  - If at any point the IKE SA fails, all child SAs will be discarded with it.
+  - Inshort IKE provides an alternative to manually configuring SAs and allows for on-demand SA creation between peers.
