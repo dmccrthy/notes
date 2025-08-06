@@ -1,3 +1,3 @@
 # Notes
 
-A collection of notes I've taken on vaarious subjects.
+A collection of notes I've taken on various subjects.
