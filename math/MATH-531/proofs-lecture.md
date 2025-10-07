@@ -1259,4 +1259,256 @@ Done Proof.
 
 ## Lecture 15:
 
-The goal of today is to focus on Proof By Cases as opposed to Direct Proofs.
+The goal of today is to focus on Proof By Cases as opposed to Direct Proofs. When using cases we want to:
+
+-   Make sure your cases cover ALL possibilities.
+
+-   For a statement $P \Rightarrow Q$, Each case must end by concluding Q.
+
+-   Cases SHOULD NOT overlap. (They are mutually exclusive)
+
+### Example 1:
+
+Let $n \in \mathbb{Z}$.
+
+Prove: $3n^2 + n + 1$ is odd.
+
+#### Proof: (By Cases)
+
+(Case 1) Assume $n$ is even.
+
+Therefore $n = 2k$ where $k \in \mathbb{Z}$.
+
+Bac
+
+$$
+3n^2 + n + 1 = 12k^2 + 2k + 1
+$$
+
+$$
+= 2(6k^2 + k) + 1
+$$
+
+$$
+= 2L + 1. \ (L \in \mathbb{Z})
+$$
+
+Done Case 1.
+
+(Case 2) Assume $n$ is odd.
+
+Therefore $n = 2k + 1$ where $k \in \mathbb{Z}$.
+
+Bac
+
+$$
+3n^2 + n + 1 = 3(4k^2 + 4k + 1) + 2k + 2
+$$
+
+$$
+= 12k^2 + 14k + 5
+$$
+
+$$
+= 2(6k^2 + 7k + 2) + 1
+$$
+
+$$
+= 2L + 1.
+$$
+
+Done Case 2.
+
+Therefore $3n^2 + n + 1$ is odd.
+
+Done Proof.
+
+### Example 2: (Absolute Value)
+
+Let $|x| \geq 0$.
+
+#### Proof:
+
+(Case 1) Assume $x \geq 0$.
+
+Therefore $|x| = x$.
+
+(Case 2) Assume $x < 0$.
+
+Therefore $|x| = -x$.
+
+Since $x < 0$, ift $-x > 0$.
+
+Therefore $|x| > 0$.
+
+---
+
+Triangle Inequality
+
+$x, y \in \mathbb{R}$
+
+$|x + y| \leq |x| + |y|$
+
+### Example 3:
+
+#### Proof:
+
+Let $x = 0$ or $y=0$.
+
+(Case 1) Wma $x = 0$.
+
+Then $x + y = y$.
+
+Therefore $|x + y| = |y|$. (#1)
+
+Also $|x| + |y| = |0| + |y|$.
+
+Done Case 1.
+
+(Case 2) Wma $y = 0$.
+
+_This is similar to Case 1._
+
+Done Case 2.
+
+## Lecture 16:
+
+Today focused more on proof by cases, and the triangle inequality.
+
+### Example 1:
+
+Prove: $| x + y | \leq |x| + |y|$.
+
+#### Idea:
+
+Case 1: Assume $x = 0$ or $y = 0$.
+
+Case 2: Assume $x > 0$ or $y > 0$.
+
+Case 3: Assume $x < 0$ or $y < 0$.
+
+Case 4: Assume $x > 0$ or $y < 0$.
+
+Subcase 4a: Assume $x + y \geq 0$.
+
+Subcase 4b: Assume $x + y < 0$.
+
+#### Proof:
+
+(Case 4) Wma $x > 0$ and $y < 0$.
+
+Therefore $|x| = x$ and $|y| = -y$.
+
+Therefore $|x| +|y| = x - y$. (#1)
+
+(Subcase 4a) Assume $x  + y \geq 0$.
+
+Therefore $|x + y| = x + y$. (#2)
+
+Since $y < 0$, ift
+
+$$
+y < -y.
+$$
+
+Therefore $x + y < x - y$.
+
+By #2 and #1 we have
+
+$$
+|x + y| < |x| + |y|.
+$$
+
+Done Subcase 4a.
+
+(Subcase 4b) Assume $x + y < 0$.
+
+Since $x > 0$, ift
+
+$$
+-x < x.
+$$
+
+Therefore $-x + -4$.
+
+### FINISH THIS
+
+### Example 2:
+
+Let $K > 0$.
+
+Then
+
+$$
+|x| < K \Leftrightarrow -K < x < K.
+$$
+
+#### Proof:
+
+($\Leftarrow$) Assume $-K < x < K$.
+
+Case 1: Assume $x \geq 0$.
+
+Therefore $|x| = x$.
+
+Therefore $|x| < K$.
+
+Done Case 1.
+
+Case 2: Assume $x < 0$.
+
+Therefore $|x| = -x$.
+
+Recall $-K < x < K$.
+
+Therefore $K > -x > -K$.
+
+Therefore $-x < K$.
+
+Done ($\Leftarrow$).
+
+($\Rightarrow$) Assume $|x| < K$.
+
+Case 1: Assume $x \geq 0$.
+
+Therefore $|x| = x$.
+
+Therefore $x < K$. (#1)
+
+Recall $K > 0$.
+
+Therefore $-K < 0$.
+
+Since $-K < 0$ and $0 \leq X$, ift
+
+$$
+-K < x. \ (\#2)
+$$
+
+Therefore $-K < x < K$.
+
+Done Case 1.
+
+Case 2: Assume $x < 0$.
+
+Therefore $|x| = -x$.
+
+Recall $|x| < K$, we have
+
+$$
+x > -K. \ (\#1)
+$$
+
+Since $x <, 0$ and $0 < K$, ift
+
+$$
+x < K. \ (\#2)
+$$
+
+Therefore $-K < x < K$.
+
+Done ($\Rightarrow$).
+
+Done Proof.
+
+### Example 3:

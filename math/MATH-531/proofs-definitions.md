@@ -8,6 +8,8 @@
 
 **... dots** - "therefore"
 
+**wma** - "we may assume"
+
 ## Def. - Rational
 
 A real number x is called _rational_ if:
@@ -264,3 +266,31 @@ $P \Rightarrow Q \ AND \ Q \Rightarrow P$.
 ## Def. - Contrapositive
 
 > Let $P$ and $Q$ be statements. The contrapositive of the implication $P \Rightarrow Q$ is $\neg Q \Rightarrow \neg P$.
+
+## Def. - Absolute Value
+
+> Let $x \in \mathbb{R}$ and:
+>
+> $|x| = \{x, x \geq 0 \ AND \ -x, x < 0\}$
+
+If the definition is piece-wise, we should be using cases to solve.
+
+## Def. -
+
+Fix $K >0$.
+
+Then
+
+$$
+|x| < K \Leftrightarrow -K < x < K.
+$$
+
+## Def. - Divisibility
+
+Let $a, b \in \mathbb{Z}$, and $a \neq 0$.
+
+We say a divides b.
+
+We write $a|b$.
+
+If $\exists K \in \mathbb{Z}$ such that $b = ak$.
