@@ -1,0 +1,6 @@
+- Intro
+  - IKE provides a way to establish SAs between devices without manual configuration
+  - Two peers using IKE create an IKE Security Association which they use to communicate and exchange information about SAs
+  - IKE peers do 2 exchanges to initialize and create their 1st SA.
+  - If at any point the IKE SA fails, all child SAs will be discarded with it.
+  - In short IKE provides an alternative to manually configuring SAs and allows for on-demand SA creation between peers.

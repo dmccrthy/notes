@@ -1,5 +1,3 @@
-# Network+ Notes
-
 ## Section 1 - Networking Theory
 
 ### General Info:
@@ -48,7 +46,6 @@ When we talk about networks we tend to classify them based on size, often with a
   - Traditionally use Ethernet or Wifi for communication.
   - Entirely self-contained without the need for an ISP
   - Under a single administration/organization
-  -
 - Wide Area Networks (WANs)
   - Cover large geographical distances
   - Often connects LANs, and MANs
@@ -121,7 +118,7 @@ Represents how devices are connected together without care for how they are phys
 - **Mesh Topology** - Each node is connected to every other node. Mesh topologies are fast and fault tolerant but difficult to manage. (Often you will see partial mesh topologies)
 - **Hybrid Topologies** - Are any topology that combine multiple of these.
 
-**Bus/Ring topologies are pretty much legacy and no one actually uses them.**
+Bus/Ring topologies are pretty much legacy and no one actually uses them.
 
 ## Section 4 - Network Media
 
