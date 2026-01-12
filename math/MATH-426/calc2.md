@@ -58,7 +58,7 @@ The total area under the combined functions
 
 ## Divided Regions
 
-![](./images/divided-region.webp)
+![](divided-region.webp)
 _Divided Regions Example_
 
 These problems are typically more complex since you have more functions, but there not to bad.

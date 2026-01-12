@@ -1,0 +1,1 @@
+Per-VLAN Spanning Tree Protocol (PVSTP) is a modified version of [[STP]] that accounts for VLANs.
